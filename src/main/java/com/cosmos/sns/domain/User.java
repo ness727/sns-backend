@@ -2,7 +2,6 @@ package com.cosmos.sns.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -12,25 +11,25 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @Table(name = "Users")
-public class User {
+public class User extends CreatedDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, length = 20)
     private String email;
 
-    @Column(name = "pwd", nullable = false)
+    @Column(name = "pwd", nullable = false, length = 20)
     private String pwd;
 
-    @Column(name = "user_name", nullable = false)
+    @Column(name = "user_name", nullable = false, length = 50)
     private String userName;
 
-    @Column(name = "nickname", nullable = false)
+    @Column(name = "nickname", nullable = false, length = 20)
     private String nickname;
 
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone", nullable = false, length = 13)
     private String phone;
 
     @Column(name = "profile_image")
@@ -38,10 +37,6 @@ public class User {
 
     @Column(name = "status", nullable = false)
     private int status;
-
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
 
     @Builder
     public User(Long id, String email, String pwd, String userName, String nickname, String phone, String profileImage, int status, LocalDateTime createdAt) {
