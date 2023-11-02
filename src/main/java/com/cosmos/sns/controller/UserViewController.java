@@ -14,13 +14,8 @@ public class UserViewController {
     }
 
     @GetMapping("/signup")
-    public String signup(AddUserRequest userDto, Model model, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("user", userDto);
-            System.out.println("가입 실패");
-        }
-        else model.addAttribute("user", new AddUserRequest());
-        System.out.println("UserViewController.signup");
+    public String signup(Model model) {
+        model.addAttribute("user", new AddUserRequest());
         return "signup";
     }
 }
