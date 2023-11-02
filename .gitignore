@@ -1,5 +1,5 @@
 ### Build ###
-build
+build/
 ### STS ###
 .apt_generated
 .classpath
