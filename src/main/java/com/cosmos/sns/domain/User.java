@@ -21,19 +21,19 @@ public class User extends BaseDateTimeEntity implements UserDetails  {
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "pwd", nullable = false)
+    @Column(name = "pwd", length = 20,nullable = false)
     private String pwd;
 
-    @Column(name = "user_name", nullable = false)
+    @Column(name = "user_name", length = 30,nullable = false)
     private String userName;
 
-    @Column(name = "nickname", nullable = false)
+    @Column(name = "nickname", length = 20, nullable = false)
     private String nickname;
 
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone", length = 15, nullable = false)
     private String phone;
 
     @Column(name = "profile_image")

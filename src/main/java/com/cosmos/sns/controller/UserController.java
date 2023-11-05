@@ -7,12 +7,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class UserController {
@@ -21,10 +23,9 @@ public class UserController {
     @PostMapping("/user")
     public String addUser(@Valid @ModelAttribute("user") AddUserRequest user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println("유저 등록 error");
+            log.error("유저 등록 error");
             return "/signup";
         }
-        System.out.println("UserController.addUser");
         userService.save(user);
 
         return "redirect:/login";

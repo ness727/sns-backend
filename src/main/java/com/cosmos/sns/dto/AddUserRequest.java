@@ -36,7 +36,7 @@ public class AddUserRequest {
     private String nickname;
 
     @NotBlank(message = "핸드폰 번호를 입력해주세요")
-    @Size(max = 13)
+    @Size(max = 15)
     private String phone;
 
     private String profileImage;
