@@ -2,6 +2,7 @@
 logging:
   level:
     com.cosmos.sns: debug
+    org.springframework.security: debug
 spring:
   h2:
     console:

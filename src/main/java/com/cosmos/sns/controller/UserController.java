@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public String addUser(@Valid @ModelAttribute("user") AddUserRequest user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             log.error("유저 등록 error");
@@ -31,10 +31,4 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest userDto, HttpServletResponse response) {
-        new SecurityContextLogoutHandler().logout(userDto, response,
-                SecurityContextHolder.getContext().getAuthentication());
-        return "redirect:/login";
-    }
 }

@@ -22,7 +22,7 @@ public class AddUserRequest {
 
     @NotBlank(message = "비밀번호를 입력해주세요")
     @Size(max = 20, message = "20자 이내로 입력해주세요")
-    @Pattern(regexp = "[\\w0-9!@#+=%^*-]*", message = "사용할 수 없는 문자가 포함되어 있습니다.")
+    @Pattern(regexp = "[\\w!@#+=%^*-]*", message = "사용할 수 없는 문자가 포함되어 있습니다.")
     // 영문자, 일부 특수기호, 숫자, 밑줄만 가능
     private String pwd;
 

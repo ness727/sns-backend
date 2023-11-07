@@ -24,7 +24,7 @@ public class User extends BaseDateTimeEntity implements UserDetails  {
     @Column(name = "email", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "pwd", length = 20,nullable = false)
+    @Column(name = "pwd", nullable = false)
     private String pwd;
 
     @Column(name = "user_name", length = 30,nullable = false)
@@ -53,6 +53,7 @@ public class User extends BaseDateTimeEntity implements UserDetails  {
         this.profileImage = profileImage;
         this.status = status;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
