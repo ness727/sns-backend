@@ -25,31 +25,38 @@
                         <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
 
                         <div class="mb-3">
-                            <label class="form-label text-white">Email address</label>
+                            <label class="form-label text-white">*Email address</label>
                             <input type="email" class="form-control" th:field="*{email}">
                             <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red">error message</p>
+                            <!-- <a th:href="${'/users/id-check/'}"></a> -->
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label text-white">Password</label>
-                            <input type="password" class="form-control" th:field="*{pwd}">
-                            <p th:if="${#fields.hasErrors('pwd')}" th:errors="*{pwd}" style="color: red">error message</p>
+                            <label class="form-label text-white">*Password</label>
+                            <input type="password" class="form-control" th:field="*{password}">
+                            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red">error message</p>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label text-white">UserName</label>
+                            <label class="form-label text-white">*UserName</label>
                             <input type="text" class="form-control" th:field="*{userName}">
                             <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" style="color: red">error message</p>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label text-white">Nickname</label>
+                            <label class="form-label text-white">Birthday</label>
+                            <input type="text" class="form-control" th:field="*{birthday}">
+                            <p th:if="${#fields.hasErrors('birthday')}" th:errors="*{userName}" style="color: red">error message</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">*Nickname</label>
                             <input type="text" class="form-control" th:field="*{nickname}">
                             <p th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}" style="color: red">error message</p>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label text-white">Phone</label>
+                            <label class="form-label text-white">*Phone</label>
                             <input type="text" class="form-control" th:field="*{phone}">
                             <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" style="color: red">error message</p>
                         </div>

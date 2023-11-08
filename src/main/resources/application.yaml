@@ -1,8 +1,11 @@
-#com.cosmos.sns와 하위 패키지 로그 레벨 설정
+# com.cosmos.sns와 하위 패키지 로그 레벨 설정
 logging:
   level:
     com.cosmos.sns: debug
-    org.springframework.security: debug
+    # org.springframework.security: debug
+
+    # ocalVariableTableParameterNameDiscoverer WARN 해결
+    org.springframework.core.LocalVariableTableParameterNameDiscoverer: error
 spring:
   h2:
     console:
@@ -17,3 +20,4 @@ spring:
     show_sql: true
     hibernate:
       ddl-auto: create
+    open-in-view: false  # JpaBaseConfiguration$JpaWebConfiguration WARN 해결

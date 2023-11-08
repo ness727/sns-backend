@@ -24,11 +24,14 @@ public class User extends BaseDateTimeEntity implements UserDetails  {
     @Column(name = "email", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "pwd", nullable = false)
-    private String pwd;
+    @Column(name = "password", nullable = false)
+    private String password;
 
-    @Column(name = "user_name", length = 30,nullable = false)
+    @Column(name = "user_name", length = 30, nullable = false)
     private String userName;
+
+    @Column(name = "birthday", length = 9, nullable = true)  // 양력(0), 음력(1) + xxxx.xx.xx
+    private String birthday;
 
     @Column(name = "nickname", length = 20, nullable = false)
     private String nickname;
@@ -43,11 +46,12 @@ public class User extends BaseDateTimeEntity implements UserDetails  {
     private int status;
 
     @Builder
-    public User(Long id, String email, String pwd, String userName, String nickname, String phone, String profileImage, int status) {
+    public User(Long id, String email, String password, String userName, String birthday, String nickname, String phone, String profileImage, int status) {
         this.id = id;
         this.email = email;
-        this.pwd = pwd;
+        this.password = password;
         this.userName = userName;
+        this.birthday = birthday;
         this.nickname = nickname;
         this.phone = phone;
         this.profileImage = profileImage;
@@ -69,7 +73,7 @@ public class User extends BaseDateTimeEntity implements UserDetails  {
     // 사용자 비밀번호
     @Override
     public String getPassword() {
-        return pwd;
+        return password;
     }
 
     // 계정 만료 여부

@@ -60,9 +60,10 @@ public class WebSecurityConfig {
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
+                        .usernameParameter("email")
                         .failureUrl("/signup")
                         .successHandler((HttpServletRequest request, HttpServletResponse response, Authentication authentication) -> {
-                            response.sendRedirect("/article");
+                            response.sendRedirect("/");
                         })
                 )
                 .logout(logout -> logout

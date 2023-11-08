@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 @Controller
 public class ArticleController {
-    @GetMapping("/article")
+    @GetMapping("/")
     public String viewArticles() {
         return "/article/articleList";
     }

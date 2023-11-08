@@ -24,12 +24,15 @@ public class AddUserRequest {
     @Size(max = 20, message = "20자 이내로 입력해주세요")
     @Pattern(regexp = "[\\w!@#+=%^*-]*", message = "사용할 수 없는 문자가 포함되어 있습니다.")
     // 영문자, 일부 특수기호, 숫자, 밑줄만 가능
-    private String pwd;
+    private String password;
 
     @NotBlank(message = "이름를 입력해주세요")
     @Size(max = 30, message = "30자 이내로 입력해주세요")
     @Pattern(regexp = "[가-힣a-zA-Z]*", message = "사용할 수 없는 문자가 포함되어 있습니다.")  // 한글, 영문 이름만 가능
     private String userName;
+
+    @Pattern(regexp = "([01]\\d{8})*", message = "패턴에 맞게 입력해주세요")
+    private String birthday;
 
     @NotBlank(message = "별명을 입력해주세요")
     @Size(max = 20, message = "20자 이내로 입력해주세요")
@@ -39,18 +42,14 @@ public class AddUserRequest {
     @Size(max = 15)
     private String phone;
 
-    private String profileImage;
-    private int status;
-
     public User toEntity() {
         return User.builder()
                 .email(email)
-                .pwd(pwd)
+                .password(password)
                 .userName(userName)
+                .birthday(birthday)
                 .nickname(nickname)
                 .phone(phone)
-                .profileImage(profileImage)
-                .status(status)
                 .build();
     }
 }
